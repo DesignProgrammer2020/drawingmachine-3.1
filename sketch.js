@@ -1,39 +1,5 @@
 //images of plastics
-let plastics = [];
-
-let animals = [{
-    name: "cardinal",
-    habitat: "meadows"
-  },
-  {
-    name: "pelican",
-    habitat: "shores"
-  },
-  {
-    name: "kangaroo",
-    habitat: "islands"
-  },
-  {
-    name: "sea turtle",
-    habitat: "oceans"
-  },
-  {
-    name: "squirrel",
-    habitat: "woodlands"
-  },
-  {
-    name: "peacock",
-    habitat: "forests"
-  },
-  {
-    name: "sea lion",
-    habitat: "oceans"
-  },
-  {
-    name: "shark",
-    habitat: "oceans"
-  }
-]
+let endangered = [];
 
 let button;
 let randomIndex;
