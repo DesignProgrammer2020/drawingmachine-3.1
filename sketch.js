@@ -9,7 +9,7 @@ let imageCounter = 0;
 
 function preload() {
   for (let i = 0; i <= 15; i++) {
-    plastics[i] = loadImage(`pictures/plastics_${i}.jpg`)
+    endangered[i] = loadImage(`pictures/endangered_${i}.jpg`)
   }
 }
 
@@ -21,8 +21,7 @@ function setup() {
   fill(0);
   imageMode(CENTER);
   frameRate(12);
-  text("Plastics harm animals!", 100, 300);
-  text("Click to see.", 100, 350);
+  text("Protect the animals!", 100, 300);
 
   //click the button
   button = createButton("Click to see");
@@ -36,9 +35,9 @@ function draw() {
     clear();
 
     //images of plastics
-    imageCounter %= plastics.length;
-    image(plastics[imageCounter], width / 2, height / 2);
-    if (imageCounter < plastics.length - 1) {
+    imageCounter %= endangered.length;
+    image(endangered[imageCounter], width / 2, height / 2);
+    if (imageCounter < endangered.length - 1) {
       imageCounter++;
     } else {
       imageCounter = 0;
@@ -48,23 +47,19 @@ function draw() {
 
 function randomizer() {
   animating = false;
-  if (animals[0]) {
+  if (endangered[0]) {
 
     clear();
-    randomIndexAnimals = int(random(animals.length));
-    randomIndexPlastics = int(random(plastics.length));
+    randomIndexEndangered = int(random(endangered.length));
 
-    image(plastics[randomIndexPlastics], width * 0.5, height * 0.5);
+    image(endangered[randomIndexEndangered], width * 0.5, height * 0.5);
     fill(random(80, 200), random(100, 220), random(80, 200));
-    text(`The ${animals[randomIndexAnimals].name} dislikes this.`, width * 0.15, height * 0.82);
+    text(`${endangered[randomIndexEndangered]}`, width * 0.15, height * 0.82);
 
-    animals.splice(randomIndexAnimals, 1);
+    endangered.splice(randomIndexEndangered, 1);
 
   } else {
     background(80, 180, 80);
-    textSize(48);
-    fill(0);
-    text("Don't litter!", width * 0.25, height * 0.5);
   }
 }
 
