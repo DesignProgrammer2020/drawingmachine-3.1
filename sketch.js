@@ -1,4 +1,4 @@
-//images of plastics
+//images of animals
 let endangered = [];
 
 let button;
@@ -34,7 +34,7 @@ function draw() {
   if (animating == true) {
     clear();
 
-    //images of plastics
+    //images of endangered species
     imageCounter %= endangered.length;
     image(endangered[imageCounter], width / 2, height / 2);
     if (imageCounter < endangered.length - 1) {
@@ -50,12 +50,14 @@ function randomizer() {
   if (endangered[0]) {
 
     clear();
+    randomIndexEndangered = int(random(endangered.length));
     image(endangered[randomIndexEndangered], width * 0.5, height * 0.5);
-    fill(random(80, 200), random(100, 220), random(80, 200));
-    endangered.splice(randomIndexEndangered, 1);
 
   } else {
     background(80, 180, 80);
+    textSize(48);
+    fill(0);
+    text("Don't litter!", width * 0.25, height * 0.5);
   }
 }
 
