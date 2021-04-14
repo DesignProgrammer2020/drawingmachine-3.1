@@ -50,12 +50,8 @@ function randomizer() {
   if (endangered[0]) {
 
     clear();
-    randomIndexEndangered = int(random(endangered.length));
-
     image(endangered[randomIndexEndangered], width * 0.5, height * 0.5);
     fill(random(80, 200), random(100, 220), random(80, 200));
-    text(`${endangered[randomIndexEndangered]}`, width * 0.15, height * 0.82);
-
     endangered.splice(randomIndexEndangered, 1);
 
   } else {
