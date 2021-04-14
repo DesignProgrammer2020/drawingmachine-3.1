@@ -67,6 +67,9 @@ function randomizer() {
     randomIndexEndangered = int(random(endangered.length));
     image(endangered[randomIndexEndangered], width * 0.5, height * 0.5);
 
+    endangered.splice([randomIndexEndangered],1);
+
+
   } else {
     background(80, 180, 80);
     textSize(48);
