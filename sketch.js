@@ -57,7 +57,6 @@ function randomizer() {
     background(80, 180, 80);
     textSize(48);
     fill(0);
-    text("Don't litter!", width * 0.25, height * 0.5);
   }
 }
 
