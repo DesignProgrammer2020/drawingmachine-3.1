@@ -11,7 +11,7 @@ let noiseOffset = 0;
 let final = false;
 
 function preload() {
-  for (let i = 0; i <= 1; i++) {
+  for (let i = 0; i <= 10; i++) {
     endangered[i] = loadImage(`pictures/endangered_${i}.jpg`);
   }
 }
