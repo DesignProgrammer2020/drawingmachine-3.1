@@ -26,7 +26,7 @@ function setup() {
   textSize(48);
   textStyle(BOLD);
   fill(100, 0, 0);
-  text("Draw endangered animals!", 0.3*width, 0.5*height);
+  text("Draw endangered animals!", 0.25*width, 0.5*height);
   pop();
 
   imageMode(CENTER);
