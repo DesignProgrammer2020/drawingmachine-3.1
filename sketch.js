@@ -111,7 +111,7 @@ function drawAnimal() {
 
   //draw the same image at a smaller scale
   push();
-  translate(0.5 * width, 0.5 * height);
+  translate(0.6 * width, 0.4 * height);
   beginShape();
   stroke(255, 0, 0);
   scale(0.5);
