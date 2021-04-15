@@ -1,62 +1,37 @@
 //images of animals
 let array = [];
-
 let endangered = [];
-let names = [];
-let pictures={
-  {name: "bald eagle",
-   picture: "pictures/endangered_baldeagle.jpg"},
-  {name: "elephant",
-  picture: "pictures/endangered_elephant.jpg"}
-  {name: "koala",
-  picture: "pictures/endangered_koala.jpg"},
-  {name: "leopard",
-  picture: "pictures/endangered_leopard.jpg"},
-  {name: "monarch butterfly",
-  picture: "pictures/endangered_monarchbutterfly.jpg"},
-  {name: "oryx",
-  picture: "pictures/endangered_oryx.jpg"},
-  {name: "Pere David's deer",
-  picture: "pictures/endangered_peredavidsdeer.jpg"},
-  {name: "polar bear",
-  picture: "pictures/endangered_polarbear.jpg"},
-  {name: "sea otter",
-  picture: "pictures/endangered_seaotter.jpg"},
-  {name: "sea turtle",
-  picture: "pictures/endangered_seaturtle.jpg"},
-  {name: "snow leopard",
-  picture: "pictures/endangered_snowleopard.jpg"}
-}
-
 let button;
 let randomIndex;
 let animating = false;
 let img;
 let imageCounter = 0;
 
-
 function preload() {
-  for (let i = 0; i <= pictures.length; i++) {
-    endangered[i] = loadImage(`pictures/picture_${i}.jpg`)
-
+  for (let i = 0; i <= 10; i++) {
+    endangered[i] = loadImage(`pictures/endangered_${i}.jpg`);
   }
 }
 
 function setup() {
-  createCanvas(500, 500);
-  //background(140, 130, 80);
+  createCanvas(windowWidth, windowHeight*0.85);
+  background(80, 130, 80);
   strokeWeight(3);
   noFill();
 
   push();
   textSize(28);
   textStyle(BOLD);
+  fill(100, 0, 0);
+  text("Protect endangered animals!", 0.35*width, 0.5*height);
   fill(0);
+  text("Drag and trace the animals", 0.35*width, 0.6*height);
+  fill(0);
+  text("to find their young.", 0.35*width, 0.68*height);
   pop();
 
   imageMode(CENTER);
   frameRate(12);
-  text("Protect the animals!", 100, 300);
 
   //click the button
   button = createButton("Click to see");
@@ -68,7 +43,7 @@ function setup() {
 function draw() {
   if (animating == true) {
     clear();
-
+    background(80, 180, 80);
     //images of endangered species
     imageCounter %= endangered.length;
     image(endangered[imageCounter], width / 2, height / 2);
@@ -79,9 +54,19 @@ function draw() {
     }
   }
 
-  if (mouseIsPressed){
-      array.push([mouseX, mouseY]);
-      drawAnimal();
+  if (mouseIsPressed) {
+    array.push([mouseX, mouseY]);
+    drawAnimal();
+  }
+
+  if (endangered.length==0) {
+    background(80, 180, 80);
+    textSize(28);
+    //black text
+    fill(0);
+    noStroke();
+    textStyle(BOLD);
+    text("Protect the animals.", width * 0.4, height * 0.6);
   }
 
 }
@@ -89,13 +74,12 @@ function draw() {
 function randomizer() {
   animating = false;
   if (endangered[0]) {
-
     clear();
+    background(80, 180, 80);
     randomIndexEndangered = int(random(endangered.length));
     image(endangered[randomIndexEndangered], width * 0.5, height * 0.5);
 
-    endangered.splice([randomIndexEndangered],1);
-
+    endangered.splice([randomIndexEndangered], 1);
 
   } else {
     background(80, 180, 80);
@@ -110,23 +94,13 @@ function buttonPressed() {
 }
 
 function keyTyped() {
-  if (key === 'r') { //red stroke
-    stroke(255, 0, 0);
-  }
-  if (key === 'g') { //green stroke
-    stroke(0, 180, 0);
-  }
-  if (key === 'b') { //blue stroke
-    stroke(0, 80, 235);
-  }
+
   if (key === 's') { //save image
     saveCanvas('drawing', 'png');
   }
 }
 
 function drawAnimal() {
-
-
   beginShape(); //draw image in curvilinear lines
   //fill(150);
   stroke(0, 0, 255);
@@ -135,7 +109,7 @@ function drawAnimal() {
   }
   endShape();
 
-  //display the same image at a smaller scale
+  //draw the same image at a smaller scale
   push();
   translate(0.5 * width, 0.5 * height);
   beginShape();
