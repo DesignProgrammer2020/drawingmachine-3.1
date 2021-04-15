@@ -99,6 +99,7 @@ function keyTyped() {
 
   if (key === 's') { //save image
     saveCanvas('drawing', 'png');
+  
   }
 }
 
