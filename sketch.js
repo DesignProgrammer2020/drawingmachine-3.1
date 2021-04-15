@@ -6,6 +6,8 @@ let randomIndex;
 let animating = false;
 let img;
 let imageCounter = 0;
+let strokeWidth = 0;
+let noiseOffset = 0;
 
 function preload() {
   for (let i = 0; i <= 10; i++) {
@@ -15,7 +17,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight*0.85);
-  background(80, 130, 80);
+  background(80, 180, 80);
   strokeWeight(3);
   noFill();
 
@@ -68,7 +70,6 @@ function draw() {
     textStyle(BOLD);
     text("Protect the animals.", width * 0.4, height * 0.6);
   }
-
 }
 
 function randomizer() {
@@ -76,6 +77,7 @@ function randomizer() {
   if (endangered[0]) {
     clear();
     background(80, 180, 80);
+
     randomIndexEndangered = int(random(endangered.length));
     image(endangered[randomIndexEndangered], width * 0.5, height * 0.5);
 
@@ -125,4 +127,10 @@ function drawAnimal() {
 
 function mousePressed() {
   array = [];
+
+  //increase stroke width
+  strokeWeight(strokeWidth);
+  noiseOffset += 0.15;
+  strokeWidth = noise(noiseOffset)*10;
+  stroke(map(mouseX, 0, windowWidth, 0, 255, true));
 }
