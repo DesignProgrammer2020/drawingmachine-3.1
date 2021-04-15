@@ -8,9 +8,10 @@ let img;
 let imageCounter = 0;
 let strokeWidth = 0;
 let noiseOffset = 0;
+let final = false;
 
 function preload() {
-  for (let i = 0; i <= 10; i++) {
+  for (let i = 0; i <= 1; i++) {
     endangered[i] = loadImage(`pictures/endangered_${i}.jpg`);
   }
 }
@@ -22,14 +23,10 @@ function setup() {
   noFill();
 
   push();
-  textSize(28);
+  textSize(48);
   textStyle(BOLD);
   fill(100, 0, 0);
-  text("Protect endangered animals!", 0.35*width, 0.5*height);
-  fill(0);
-  text("Drag and trace the animals", 0.35*width, 0.6*height);
-  fill(0);
-  text("to find their young.", 0.35*width, 0.68*height);
+  text("Draw endangered animals!", 0.3*width, 0.5*height);
   pop();
 
   imageMode(CENTER);
@@ -43,7 +40,7 @@ function setup() {
 }
 
 function draw() {
-  if (animating == true) {
+  if (animating == true && endangered.length > 0) {
     clear();
     background(80, 180, 80);
     //images of endangered species
@@ -60,15 +57,15 @@ function draw() {
     array.push([mouseX, mouseY]);
     drawAnimal();
   }
-
-  if (endangered.length==0) {
+  console.log(`final is ${final}`);
+  if (final == true) {
     background(80, 180, 80);
-    textSize(28);
+    textSize(48);
     //black text
     fill(0);
     noStroke();
     textStyle(BOLD);
-    text("Protect the animals.", width * 0.4, height * 0.6);
+    text("Protect the animals.", width * 0.3, height * 0.6);
   }
 }
 
@@ -84,6 +81,7 @@ function randomizer() {
     endangered.splice([randomIndexEndangered], 1);
 
   } else {
+    final = true
     background(80, 180, 80);
     textSize(48);
     fill(0);
@@ -96,10 +94,8 @@ function buttonPressed() {
 }
 
 function keyTyped() {
-
   if (key === 's') { //save image
     saveCanvas('drawing', 'png');
-  
   }
 }
 
@@ -128,5 +124,4 @@ function drawAnimal() {
 
 function mousePressed() {
   array = [];
-
 }
