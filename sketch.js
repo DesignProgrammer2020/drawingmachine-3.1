@@ -10,7 +10,7 @@ let img;
 let imageCounter = 0;
 
 function preload() {
-  for (let i = 0; i <= 5; i++) {
+  for (let i = 0; i <= 10; i++) {
     endangered[i] = loadImage(`pictures/endangered_${i}.jpg`)
   }
 }
