@@ -6,8 +6,6 @@ let randomIndex;
 let animating = false;
 let img;
 let imageCounter = 0;
-let strokeWidth = 0;
-let noiseOffset = 0;
 let final = false;
 
 function preload() {
