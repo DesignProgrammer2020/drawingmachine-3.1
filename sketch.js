@@ -2,6 +2,31 @@
 let array = [];
 
 let endangered = [];
+let names = [];
+let pictures={
+  {name: "bald eagle",
+   picture: "pictures/endangered_baldeagle.jpg"},
+  {name: "elephant",
+  picture: "pictures/endangered_elephant.jpg"}
+  {name: "koala",
+  picture: "pictures/endangered_koala.jpg"},
+  {name: "leopard",
+  picture: "pictures/endangered_leopard.jpg"},
+  {name: "monarch butterfly",
+  picture: "pictures/endangered_monarchbutterfly.jpg"},
+  {name: "oryx",
+  picture: "pictures/endangered_oryx.jpg"},
+  {name: "Pere David's deer",
+  picture: "pictures/endangered_peredavidsdeer.jpg"},
+  {name: "polar bear",
+  picture: "pictures/endangered_polarbear.jpg"},
+  {name: "sea otter",
+  picture: "pictures/endangered_seaotter.jpg"},
+  {name: "sea turtle",
+  picture: "pictures/endangered_seaturtle.jpg"},
+  {name: "snow leopard",
+  picture: "pictures/endangered_snowleopard.jpg"}
+}
 
 let button;
 let randomIndex;
@@ -9,9 +34,11 @@ let animating = false;
 let img;
 let imageCounter = 0;
 
+
 function preload() {
-  for (let i = 0; i <= 10; i++) {
-    endangered[i] = loadImage(`pictures/endangered_${i}.jpg`)
+  for (let i = 0; i <= pictures.length; i++) {
+    endangered[i] = loadImage(`pictures/picture_${i}.jpg`)
+
   }
 }
 
